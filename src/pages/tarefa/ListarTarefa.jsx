@@ -50,7 +50,7 @@ const ListarTarefa = () => {
   const [tarefas, setTarefas] = useState([]);
   const [tarefa, setTarefa] = useState();
   const [idTarefaSelecionada, setIdTarefaSelecionada] = useState([]);
-  const [showNotification, setShowNotification] = useState(false);
+  const [tarefaExcluida, setTarefaExcluida] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -83,12 +83,12 @@ const ListarTarefa = () => {
         return tarefa.idTarefa !== id;
       }),
     );
-    setShowNotification(prevState => !prevState)
+    setTarefaExcluida(prevState => !prevState)
   };
 
     return(
     <>
-    {showNotification && (
+    {tarefaExcluida && (
         <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
           Tarefa EXCLUÍDA
         </Alert>
